@@ -1,0 +1,46 @@
+package errores.jr;
+import static java.lang.Math.abs;
+import java.util.Scanner;
+public class ERRORESJR {
+    public static void main(String[] args) {
+     Scanner teclado = new Scanner(System.in);
+     int X,Y;
+     System.out.println("Teclea el valor real");
+     X=teclado.nextInt();
+     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("Teclea el valor aproximado");
+     Y=teclado.nextInt();
+     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     errores e1 = new errores(X,Y);
+     System.out.println("El total de un error donde el valor real es "+X+" y el aproximado es "+Y);
+     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("La cantidad del error absoluto es: "+e1.errorA());
+     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("La cantidad del error relativo es: "+e1.errorR());
+     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("La cantidad del error relativo porcentual es es: "+e1.errorRP()+"%");
+    }
+}
+class errores {
+private int Real, Aproximado;
+int e,e_abs,er,er_abs,erp,erp_abs;
+public errores (int a, int b){
+Real=a;
+Aproximado=b;
+}
+public int errorA(){
+    e=(Real-Aproximado);
+    e_abs= abs(e);
+  return e_abs;  
+}
+public double errorR(){
+er=e/Real;
+er_abs= abs(er);
+return er_abs;
+}
+public int errorRP(){
+erp=er*100;
+erp_abs = abs(erp);
+return erp_abs;
+}
+}
