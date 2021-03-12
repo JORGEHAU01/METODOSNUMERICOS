@@ -1,0 +1,45 @@
+package metodosnumericos.jr;
+import java.util.Scanner;
+public class METODOSNUMERICOSJR {
+    public static void main(String[] args) {
+        Scanner JR=new Scanner (System.in); 
+        int base, exponente;
+        double sumatroia;
+        System.out.println("Teclea el valor de la base");
+        base=JR.nextInt();
+        System.out.println("Teclea el valor del exponente");
+        exponente=JR.nextInt();
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        sumatroia=suma(base, exponente);
+        System.out.println("El resultado es:"+sumatroia);
+        System.out.println(potencia(base, exponente));
+        System.out.println(factorial(exponente));       
+    }
+    public static double potencia(int base, int exponente){
+    int resultado=1;
+    for(int i=1;i<=exponente;i++){
+        resultado=resultado*base;
+}
+        return resultado;
+    }
+    public static double factorial(int exponente){
+        double total=1;
+        for(int i=2;i<=exponente;i++){
+            total*=i;
+        }
+        return total;
+    }
+    public static double suma(int base, int exponente){
+        int i=0;
+        double sumatoria=0;
+        while (i<=exponente){
+            double numerador=0;
+            double denominador=0;
+            numerador=potencia(base, exponente);
+            denominador=factorial(base);
+            sumatoria=sumatoria+(numerador/denominador);
+            i++;
+        }
+        return sumatoria;
+    }
+    }
